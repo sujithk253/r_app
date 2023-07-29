@@ -1,16 +1,18 @@
 import './App.css';
 import { Container, Form, FormInput } from 'semantic-ui-react';
 import MainHeader from './components/MainHeader';
+import { useState } from 'react';
 
 function App() {
+  const [fields,setFields] = useState(fieldsList);
   return (
     <Container>
-      <MainHeader title='Simple Form' />
+      <MainHeader title='Registration Form' />
       <Form unstackable>
         <Form.Group>
           <FormInput 
           icon='tags'
-          width={12}
+          width={16}
           label="Username"
           placeholder="Please Enter Your Username"
           ></FormInput>
@@ -22,3 +24,11 @@ function App() {
 }
 
 export default App;
+
+var fieldsList = [
+  {
+    label:"Username",
+    placeholder:"Please enter your username",
+    width:30,
+  }
+]
