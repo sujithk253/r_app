@@ -1,5 +1,5 @@
 import './App.css';
-import { Container, Form, FormInput } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 import MainHeader from './components/MainHeader';
 import { useState } from 'react';
 import RegistrationForm from './components/RegistrationForm';
@@ -8,7 +8,7 @@ function App() {
   const [fields,setFields] = useState(fieldsList);
   return (
     <Container>
-      <MainHeader title='Registration Form' />
+      <MainHeader title='Register' />
       <RegistrationForm fieldsList={fields}/>
     </Container>
   );
