@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Button, ButtonGroup, Form } from 'semantic-ui-react'
+import axios from 'axios';
 
 function RegistrationForm({fieldsList}) {
   const [formData, setFormData] = useState({
@@ -7,13 +8,25 @@ function RegistrationForm({fieldsList}) {
     lastName: '',
     email: '',
   });
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log('Form data submitted:', formData);
+    try {
+      const response = await axios.get('http://localhost/nlpApp/public/home', formData);
+      console.log('Form data submitted:', response.data);
+      // Optionally, reset the form data after successful submission
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+      });
+    } catch (error) {
+      console.error('Error submitting form data:', error);
+    }
   };
   const handleInputChange = (event, { name, value }) => {
     setFormData((prevData) => ({
-      ...prevData,
+      //...prevData,
       [name]: value,
     }));
   };
